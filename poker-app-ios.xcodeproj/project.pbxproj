@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		9D0711D929B5E68400BAF050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711D829B5E68400BAF050 /* AppDelegate.swift */; };
 		9D0711DB29B5E68400BAF050 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711DA29B5E68400BAF050 /* SceneDelegate.swift */; };
-		9D0711DD29B5E68400BAF050 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711DC29B5E68400BAF050 /* ViewController.swift */; };
+		9D0711DD29B5E68400BAF050 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711DC29B5E68400BAF050 /* InputViewController.swift */; };
 		9D0711E029B5E68400BAF050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0711DE29B5E68400BAF050 /* Main.storyboard */; };
 		9D0711E229B5E68500BAF050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D0711E129B5E68500BAF050 /* Assets.xcassets */; };
 		9D0711E529B5E68500BAF050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0711E329B5E68500BAF050 /* LaunchScreen.storyboard */; };
 		9D0711F029B5E68500BAF050 /* poker_app_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711EF29B5E68500BAF050 /* poker_app_iosTests.swift */; };
 		9D0711FA29B5E68500BAF050 /* poker_app_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711F929B5E68500BAF050 /* poker_app_iosUITests.swift */; };
 		9D0711FC29B5E68500BAF050 /* poker_app_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711FB29B5E68500BAF050 /* poker_app_iosUITestsLaunchTests.swift */; };
+		9D07120C29B5E7D800BAF050 /* HandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07120B29B5E7D800BAF050 /* HandTableViewCell.swift */; };
+		9D07120E29B5EB0000BAF050 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07120D29B5EB0000BAF050 /* Hand.swift */; };
+		9DCCF5DB29B9E0CD0053D947 /* SingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */; };
+		9DCCF5DD29BB24C30053D947 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5DC29BB24C30053D947 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,7 @@
 		9D0711D529B5E68400BAF050 /* poker-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "poker-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0711D829B5E68400BAF050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D0711DA29B5E68400BAF050 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D0711DC29B5E68400BAF050 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D0711DC29B5E68400BAF050 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		9D0711DF29B5E68400BAF050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D0711E129B5E68500BAF050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D0711E429B5E68500BAF050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		9D0711F529B5E68500BAF050 /* poker-app-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "poker-app-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0711F929B5E68500BAF050 /* poker_app_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poker_app_iosUITests.swift; sourceTree = "<group>"; };
 		9D0711FB29B5E68500BAF050 /* poker_app_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poker_app_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9D07120B29B5E7D800BAF050 /* HandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandTableViewCell.swift; sourceTree = "<group>"; tabWidth = 4; };
+		9D07120D29B5EB0000BAF050 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
+		9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonClass.swift; sourceTree = "<group>"; };
+		9DCCF5DC29BB24C30053D947 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +107,13 @@
 		9D0711D729B5E68400BAF050 /* poker-app-ios */ = {
 			isa = PBXGroup;
 			children = (
+				9D07120A29B5E6A300BAF050 /* Resources */,
+				9D07120929B5E69A00BAF050 /* Model */,
+				9D07120829B5E69100BAF050 /* Controller */,
 				9D0711D829B5E68400BAF050 /* AppDelegate.swift */,
 				9D0711DA29B5E68400BAF050 /* SceneDelegate.swift */,
-				9D0711DC29B5E68400BAF050 /* ViewController.swift */,
-				9D0711DE29B5E68400BAF050 /* Main.storyboard */,
-				9D0711E129B5E68500BAF050 /* Assets.xcassets */,
-				9D0711E329B5E68500BAF050 /* LaunchScreen.storyboard */,
 				9D0711E629B5E68500BAF050 /* Info.plist */,
+				9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */,
 			);
 			path = "poker-app-ios";
 			sourceTree = "<group>";
@@ -125,6 +133,34 @@
 				9D0711FB29B5E68500BAF050 /* poker_app_iosUITestsLaunchTests.swift */,
 			);
 			path = "poker-app-iosUITests";
+			sourceTree = "<group>";
+		};
+		9D07120829B5E69100BAF050 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9D0711DC29B5E68400BAF050 /* InputViewController.swift */,
+				9D07120B29B5E7D800BAF050 /* HandTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9D07120929B5E69A00BAF050 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D07120D29B5EB0000BAF050 /* Hand.swift */,
+				9DCCF5DC29BB24C30053D947 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D07120A29B5E6A300BAF050 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D0711DE29B5E68400BAF050 /* Main.storyboard */,
+				9D0711E129B5E68500BAF050 /* Assets.xcassets */,
+				9D0711E329B5E68500BAF050 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D0711DD29B5E68400BAF050 /* ViewController.swift in Sources */,
+				9DCCF5DB29B9E0CD0053D947 /* SingletonClass.swift in Sources */,
+				9D07120C29B5E7D800BAF050 /* HandTableViewCell.swift in Sources */,
+				9DCCF5DD29BB24C30053D947 /* Card.swift in Sources */,
+				9D07120E29B5EB0000BAF050 /* Hand.swift in Sources */,
+				9D0711DD29B5E68400BAF050 /* InputViewController.swift in Sources */,
 				9D0711D929B5E68400BAF050 /* AppDelegate.swift in Sources */,
 				9D0711DB29B5E68400BAF050 /* SceneDelegate.swift in Sources */,
 			);
@@ -350,6 +390,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -410,6 +451,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
