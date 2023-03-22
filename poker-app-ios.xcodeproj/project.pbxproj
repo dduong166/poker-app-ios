@@ -19,7 +19,6 @@
 		9D07120C29B5E7D800BAF050 /* HandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07120B29B5E7D800BAF050 /* HandTableViewCell.swift */; };
 		9D07120E29B5EB0000BAF050 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07120D29B5EB0000BAF050 /* Hand.swift */; };
 		9DCCF5DB29B9E0CD0053D947 /* SingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */; };
-		9DCCF5DD29BB24C30053D947 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5DC29BB24C30053D947 /* Card.swift */; };
 		9DCCF5E629CA8B840053D947 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5E529CA8B840053D947 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +56,6 @@
 		9D07120B29B5E7D800BAF050 /* HandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandTableViewCell.swift; sourceTree = "<group>"; tabWidth = 4; };
 		9D07120D29B5EB0000BAF050 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonClass.swift; sourceTree = "<group>"; };
-		9DCCF5DC29BB24C30053D947 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9DCCF5E529CA8B840053D947 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				9D07120D29B5EB0000BAF050 /* Hand.swift */,
-				9DCCF5DC29BB24C30053D947 /* Card.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,7 +297,6 @@
 				9DCCF5DB29B9E0CD0053D947 /* SingletonClass.swift in Sources */,
 				9D07120C29B5E7D800BAF050 /* HandTableViewCell.swift in Sources */,
 				9DCCF5E629CA8B840053D947 /* Strings.swift in Sources */,
-				9DCCF5DD29BB24C30053D947 /* Card.swift in Sources */,
 				9D07120E29B5EB0000BAF050 /* Hand.swift in Sources */,
 				9D0711DD29B5E68400BAF050 /* InputViewController.swift in Sources */,
 				9D0711D929B5E68400BAF050 /* AppDelegate.swift in Sources */,
