@@ -89,7 +89,6 @@
 		9D0711CC29B5E68400BAF050 = {
 			isa = PBXGroup;
 			children = (
-				9DCCF5E529CA8B840053D947 /* Strings.swift */,
 				9D0711D729B5E68400BAF050 /* poker-app-ios */,
 				9D0711EE29B5E68500BAF050 /* poker-app-iosTests */,
 				9D0711F829B5E68500BAF050 /* poker-app-iosUITests */,
@@ -117,6 +116,7 @@
 				9D0711DA29B5E68400BAF050 /* SceneDelegate.swift */,
 				9D0711E629B5E68500BAF050 /* Info.plist */,
 				9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */,
+				9DCCF5E529CA8B840053D947 /* Strings.swift */,
 			);
 			path = "poker-app-ios";
 			sourceTree = "<group>";
