@@ -12,13 +12,14 @@ class SingletonClass {
     
     private init() {}
     
-    var isErrorInputPresent = true
-    
-    func getIsErrorInputPresent() -> Bool {
-        return isErrorInputPresent
+    var hands = [Hand]()
+        
+    func getHands() -> [Hand] {
+        return hands
     }
     
-    func setIsErrorInputPresent(isError: Bool) {
-        isErrorInputPresent = isError
+    func appendToHands(hand: Hand) {
+        hands.append(hand)
     }
 }
+

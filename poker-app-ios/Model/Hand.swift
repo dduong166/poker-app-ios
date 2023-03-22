@@ -8,9 +8,9 @@
 import UIKit
 
 struct Hand {
-    var inputCard1: Card
-    var inputCard2: Card
-    var inputCard3: Card
-    var inputCard4: Card
-    var inputCard5: Card
+    var inputCard1: String
+    var inputCard2: String
+    var inputCard3: String
+    var inputCard4: String
+    var inputCard5: String
 }
