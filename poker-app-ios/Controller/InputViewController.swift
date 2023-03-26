@@ -41,8 +41,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
    
     @IBAction func pressCheckBtn(_ sender: Any) {
-        HandTableViewCell.hello()
-        if TableViewData.isErrorPresent == true {
+        
+        if TableViewData.isErrorPresent == true || isEmptyPresent() {
             Toast.show(Strings.ErrorMessages.errorPresent, self.view)
         } else {
             print(TableViewData.hands)
@@ -206,5 +206,11 @@ func showInputError(errorMessage: UILabel, errorIcon: UIImageView, errorMessageT
         errorMessage.isHidden = false
         errorIcon.isHidden = false
         TableViewData.isErrorPresent = true
+    }
+}
+
+func isEmptyPresent() -> Bool{
+    return TableViewData.hands.contains { hand in
+        hand.inputCard1.isEmpty || hand.inputCard2.isEmpty || hand.inputCard3.isEmpty || hand.inputCard4.isEmpty || hand.inputCard5.isEmpty
     }
 }
