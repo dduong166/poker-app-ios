@@ -10,7 +10,7 @@ import UIKit
 struct TableViewData {
     static var hands = [Hand]()
     static var cellPosition = 0
-//    static var isErrorPresent = true
+    static var isErrorPresent = true
 }
 
 class ViewController: UIViewController, UITextFieldDelegate {
@@ -41,7 +41,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
    
     @IBAction func pressCheckBtn(_ sender: Any) {
-        print(TableViewData.hands)
+        HandTableViewCell.hello()
+        if TableViewData.isErrorPresent == true {
+            Toast.show(Strings.ErrorMessages.errorPresent, self.view)
+        } else {
+            print(TableViewData.hands)
+        }
     }
     
     @IBAction func addInput(_ sender: Any) {
@@ -130,8 +135,10 @@ class HandTableViewCell: UITableViewCell {
     
     func checkInputError() {
         
+        TableViewData.isErrorPresent = false
+        
         let inputArray = [TableViewData.hands[TableViewData.cellPosition].inputCard1, TableViewData.hands[TableViewData.cellPosition].inputCard2, TableViewData.hands[TableViewData.cellPosition].inputCard3, TableViewData.hands[TableViewData.cellPosition].inputCard4, TableViewData.hands[TableViewData.cellPosition].inputCard5]
-        var countDictionary = countInputValue(inputArray: inputArray)
+        let countDictionary = countInputValue(inputArray: inputArray)
 
         // array containing number of occurrences of each element in inputArray
         for (index, value) in inputArray.enumerated() {
@@ -150,6 +157,10 @@ class HandTableViewCell: UITableViewCell {
                 break
             }
         }
+    }
+    
+    func hello() {
+        print("ahihihihi")
     }
 }
 
@@ -194,5 +205,6 @@ func showInputError(errorMessage: UILabel, errorIcon: UIImageView, errorMessageT
         errorMessage.text = errorMessageText
         errorMessage.isHidden = false
         errorIcon.isHidden = false
+        TableViewData.isErrorPresent = true
     }
 }

@@ -20,6 +20,7 @@
 		9D07120E29B5EB0000BAF050 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07120D29B5EB0000BAF050 /* Hand.swift */; };
 		9DCCF5DB29B9E0CD0053D947 /* SingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */; };
 		9DCCF5E629CA8B840053D947 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5E529CA8B840053D947 /* Strings.swift */; };
+		9DCCF5E829CFD57E0053D947 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5E729CFD57E0053D947 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		9D07120D29B5EB0000BAF050 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonClass.swift; sourceTree = "<group>"; };
 		9DCCF5E529CA8B840053D947 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		9DCCF5E729CFD57E0053D947 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				9D0711E629B5E68500BAF050 /* Info.plist */,
 				9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */,
 				9DCCF5E529CA8B840053D947 /* Strings.swift */,
+				9DCCF5E729CFD57E0053D947 /* Common.swift */,
 			);
 			path = "poker-app-ios";
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DCCF5E829CFD57E0053D947 /* Common.swift in Sources */,
 				9DCCF5DB29B9E0CD0053D947 /* SingletonClass.swift in Sources */,
 				9D07120C29B5E7D800BAF050 /* HandTableViewCell.swift in Sources */,
 				9DCCF5E629CA8B840053D947 /* Strings.swift in Sources */,
