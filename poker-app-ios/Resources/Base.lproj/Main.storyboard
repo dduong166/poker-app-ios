@@ -343,7 +343,7 @@
         <!--履歴-->
         <scene sceneID="x4s-Ke-RqP">
             <objects>
-                <viewController id="qvw-VD-mZX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="history_screen" id="qvw-VD-mZX" customClass="HistoryViewController" customModule="poker_app_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="huH-dW-x6b">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -396,6 +396,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="履歴" id="DPG-zD-dh7"/>
+                    <connections>
+                        <outlet property="historyTableView" destination="H2o-CL-VWQ" id="8rj-ig-6XM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7O-pd-KJ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
