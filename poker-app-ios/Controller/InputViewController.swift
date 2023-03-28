@@ -23,8 +23,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         TableViewData.hands.append(Hand(inputCard1: "", inputCard2: "", inputCard3: "", inputCard4: "", inputCard5: ""))
 
         inputTableView.dataSource = self
-//        checkBtn.isEnabled = false
-        
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -42,11 +40,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
    
     @IBAction func pressCheckBtn(_ sender: Any) {
         
-        if TableViewData.isErrorPresent == true || isEmptyPresent() {
-            Toast.show(Strings.ErrorMessages.errorPresent, self.view)
-        } else {
-            print(TableViewData.hands)
-        }
+//        if TableViewData.isErrorPresent == true || isEmptyPresent() {
+//            Toast.show(Strings.ErrorMessages.errorPresent, self.view)
+//        } else {
+//            let resultScreen = storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
+//            resultScreen.param = TableViewData.hands
+//            navigationController?.pushViewController(resultScreen, animated: true)
+//        }
+        let resultScreen = storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
+        resultScreen.param = TableViewData.hands
+        navigationController?.pushViewController(resultScreen, animated: true)
     }
     
     @IBAction func addInput(_ sender: Any) {
