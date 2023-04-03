@@ -10,18 +10,13 @@ import UIKit
 class ResultViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var resultTableView: UITableView!
-    var param = [Hand(inputCard1: "", inputCard2: "", inputCard3: "", inputCard4: "", inputCard5: "")]
-    var results = [
-        Result(card: "C7 C6 C5 C4 C3", hand: "フルハウス"),
-        Result(card: "H1 H13 H2 A1 D10", hand: "フォー・オブ・ア・カインド"),
-        Result(card: "H1 H13 H12 H11 H10", hand: "ストレートフラッシュ"),
-    ]
+    var results = [Result(cards: "", hand: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         resultTableView.dataSource = self
         
-        print(param)
+        print(results)
 
         // Do any additional setup after loading the view.
     }
@@ -35,7 +30,7 @@ class ResultViewController: UIViewController, UITableViewDataSource {
         let result = results[indexPath.row]
         
         cell.hand.text = result.hand
-        cell.card.text = result.card
+        cell.cards.text = result.cards
         
         return cell
     }
@@ -43,5 +38,5 @@ class ResultViewController: UIViewController, UITableViewDataSource {
 
 class ResultTableViewCell: UITableViewCell {
     @IBOutlet weak var hand: UILabel!
-    @IBOutlet weak var card: UILabel!
+    @IBOutlet weak var cards: UILabel!
 }

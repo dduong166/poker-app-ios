@@ -35,3 +35,25 @@ class Toast {
         })
     }
 }
+
+func handsArrayToJson(hands: [Hand]) -> String? {
+    let handStrings = hands.map { $0.mergeCard() }
+
+    let json: [String: Any] = ["cards": handStrings]
+    let jsonData = try? JSONSerialization.data(withJSONObject: json)
+
+    if let jsonData = jsonData, let jsonString = String(data: jsonData, encoding: .utf8) {
+        return jsonString
+    }
+
+    return ""
+}
+
+//func handsArrayToJson(hands: [Hand]) -> Any? {
+//    let handStrings = hands.map { $0.mergeCard() }
+//
+//    let json: [String: Any] = ["cards": handStrings]
+//    let jsonData = try? JSONSerialization.data(withJSONObject: json)
+//
+//    return jsonData
+//}

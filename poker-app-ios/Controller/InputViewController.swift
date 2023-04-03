@@ -40,16 +40,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
    
     @IBAction func pressCheckBtn(_ sender: Any) {
         
-//        if TableViewData.isErrorPresent == true || isEmptyPresent() {
-//            Toast.show(Strings.ErrorMessages.errorPresent, self.view)
-//        } else {
-//            let resultScreen = storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
-//            resultScreen.param = TableViewData.hands
-//            navigationController?.pushViewController(resultScreen, animated: true)
-//        }
-        let resultScreen = storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
-        resultScreen.param = TableViewData.hands
-        navigationController?.pushViewController(resultScreen, animated: true)
+        if TableViewData.isErrorPresent == true || isEmptyPresent() {
+            Toast.show(Strings.ErrorMessages.errorPresent, self.view)
+        } else {
+            getResult { (result, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    Toast.show(error.localizedDescription, self.view)
+                } else if let result = result {
+                    print("Result: \(result)")
+                    DispatchQueue.main.async {
+                        let resultScreen = self.storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
+                        resultScreen.results = result.results
+                        self.navigationController?.pushViewController(resultScreen, animated: true)
+                    }
+                }
+            }
+            
+        }
+        
+        
+//        let resultScreen = storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
+//        resultScreen.param = TableViewData.hands
+//        navigationController?.pushViewController(resultScreen, animated: true)
     }
     
     @IBAction func addInput(_ sender: Any) {
@@ -161,10 +174,6 @@ class HandTableViewCell: UITableViewCell {
             }
         }
     }
-    
-    func hello() {
-        print("ahihihihi")
-    }
 }
 
 // Count the number of occurrences of each element in the array
@@ -216,4 +225,93 @@ func isEmptyPresent() -> Bool{
     return TableViewData.hands.contains { hand in
         hand.inputCard1.isEmpty || hand.inputCard2.isEmpty || hand.inputCard3.isEmpty || hand.inputCard4.isEmpty || hand.inputCard5.isEmpty
     }
+}
+
+//func getResult() -> ResultsContainer {
+//    // Prepare URL
+//    let url = URL(string: "https://atoneios.onrender.com/api/v1/poker")
+//    guard let requestUrl = url else { fatalError() }
+//    // Prepare URL Request Object
+//    var request = URLRequest(url: requestUrl)
+//    request.httpMethod = "POST"
+//
+//    // HTTP Request Parameters which will be sent in HTTP Request Body
+//    let postString = handsArrayToJson(hands: TableViewData.hands);
+//    // Set HTTP Request Body
+//    request.httpBody = postString?.data(using: String.Encoding.utf8);
+////    request.httpBody = handsArrayToJson(hands: TableViewData.hands) as? Data;
+//    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//
+//    // Perform HTTP Request
+//    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+//
+//        // Convert HTTP Response Data to a String
+//        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+//            print("Response data string:\n \(dataString)")
+//
+//            do {
+//                // Decode the JSON data into a Result object
+//                let decoder = JSONDecoder()
+//                let returnResult = try decoder.decode(ResultsContainer.self, from: data)
+//
+//                // Use the Result object as needed
+//                print("Result: \(returnResult)")
+//
+//            } catch {
+//                print("Error decoding JSON: \(error)")
+//            }
+//        }
+//
+//    }
+//    task.resume()
+//}
+
+func getResult(completion: @escaping (ResultsContainer?, Error?) -> Void) {
+    // Prepare URL
+    let url = URL(string: "https://atoneios.onrender.com/api/v1/poker")
+    guard let requestUrl = url else { fatalError() }
+    // Prepare URL Request Object
+    var request = URLRequest(url: requestUrl)
+    request.httpMethod = "POST"
+
+    // HTTP Request Parameters which will be sent in HTTP Request Body
+    let postString = handsArrayToJson(hands: TableViewData.hands);
+    // Set HTTP Request Body
+    request.httpBody = postString?.data(using: String.Encoding.utf8);
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+    // Perform HTTP Request
+    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+
+        // Check for errors
+        guard error == nil else {
+            completion(nil, error)
+            return
+        }
+
+        // Check if there is data
+        guard let data = data else {
+            completion(nil, NSError(domain: "noData", code: 1, userInfo: nil))
+            return
+        }
+
+        do {
+            // Decode the JSON data into a Result object
+            let decoder = JSONDecoder()
+            let returnResult = try decoder.decode(ResultsContainer.self, from: data)
+
+            // Use the Result object as needed
+//            print("Result: \(returnResult)")
+
+            // Return the Result object through the completion handler
+            completion(returnResult, nil)
+
+        } catch {
+            print("Error decoding JSON: \(error)")
+
+            // Return the error through the completion handler
+            completion(nil, error)
+        }
+    }
+    task.resume()
 }

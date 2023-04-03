@@ -7,7 +7,11 @@
 
 import UIKit
 
-struct Result {
-    var card: String
+struct ResultsContainer: Decodable {
+    var results: [Result]
+}
+
+struct Result: Decodable {
+    var cards: String
     var hand: String
 }

@@ -97,7 +97,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="card" destination="Kim-Xp-x4i" id="sbD-b7-7LN"/>
+                                            <outlet property="cards" destination="Kim-Xp-x4i" id="u36-wT-yuF"/>
                                             <outlet property="hand" destination="9HF-oz-BDP" id="HlT-5c-e5d"/>
                                         </connections>
                                     </tableViewCell>
