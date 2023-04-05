@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  poker-app-ios
+
+  Created by ズオン ダン on 2023/03/22.
+  
+*/
+
+"Please check the input" = "入力内容を確認してください！"
+"The input content is duplicated" = "入力内容が重複されています"
+
+ 
