@@ -18,13 +18,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var inputTableView: UITableView!
     @IBOutlet weak var checkBtn: UIButton!
     
-    
+    var shouldReloadData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        TableViewData.hands.append(Hand(inputCard1: "", inputCard2: "", inputCard3: "", inputCard4: "", inputCard5: ""))
+//        TableViewData.hands.append(Hand(inputCard1: "", inputCard2: "", inputCard3: "", inputCard4: "", inputCard5: ""))
         inputTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        TableViewData.hands = [Hand(inputCard1: "", inputCard2: "", inputCard3: "", inputCard4: "", inputCard5: "")]
+        //1回目はtableviewをリロードしない、2回目からリロードする
+        shouldReloadData ? inputTableView.reloadData() : (shouldReloadData = true)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
