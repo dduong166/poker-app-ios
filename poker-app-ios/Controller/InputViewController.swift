@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 struct TableViewData {
     static var hands = [Hand]()
@@ -17,11 +18,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var inputTableView: UITableView!
     @IBOutlet weak var checkBtn: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         TableViewData.hands.append(Hand(inputCard1: "", inputCard2: "", inputCard3: "", inputCard4: "", inputCard5: ""))
-
         inputTableView.dataSource = self
     }
     
@@ -49,6 +51,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     Toast.show(error.localizedDescription, self.view)
                 } else if let result = result {
                     print("Result: \(result)")
+                    writeToDatabase(results: result.results)
                     DispatchQueue.main.async {
                         let resultScreen = self.storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
                         resultScreen.results = result.results
@@ -227,45 +230,6 @@ func isEmptyPresent() -> Bool{
     }
 }
 
-//func getResult() -> ResultsContainer {
-//    // Prepare URL
-//    let url = URL(string: "https://atoneios.onrender.com/api/v1/poker")
-//    guard let requestUrl = url else { fatalError() }
-//    // Prepare URL Request Object
-//    var request = URLRequest(url: requestUrl)
-//    request.httpMethod = "POST"
-//
-//    // HTTP Request Parameters which will be sent in HTTP Request Body
-//    let postString = handsArrayToJson(hands: TableViewData.hands);
-//    // Set HTTP Request Body
-//    request.httpBody = postString?.data(using: String.Encoding.utf8);
-////    request.httpBody = handsArrayToJson(hands: TableViewData.hands) as? Data;
-//    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//
-//    // Perform HTTP Request
-//    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-//
-//        // Convert HTTP Response Data to a String
-//        if let data = data, let dataString = String(data: data, encoding: .utf8) {
-//            print("Response data string:\n \(dataString)")
-//
-//            do {
-//                // Decode the JSON data into a Result object
-//                let decoder = JSONDecoder()
-//                let returnResult = try decoder.decode(ResultsContainer.self, from: data)
-//
-//                // Use the Result object as needed
-//                print("Result: \(returnResult)")
-//
-//            } catch {
-//                print("Error decoding JSON: \(error)")
-//            }
-//        }
-//
-//    }
-//    task.resume()
-//}
-
 func getResult(completion: @escaping (ResultsContainer?, Error?) -> Void) {
     // Prepare URL
     let url = URL(string: "https://atoneios.onrender.com/api/v1/poker")
@@ -314,4 +278,25 @@ func getResult(completion: @escaping (ResultsContainer?, Error?) -> Void) {
         }
     }
     task.resume()
+}
+
+func writeToDatabase(results: [Result]) {
+    let realm = try! Realm()
+    
+    for resultItem in results {
+
+        // Tạo một đối tượng History mới
+        let historyItem = HistoryRealm()
+
+        // Gán giá trị cho thuộc tính cards và hand của đối tượng History từ mảng Result
+        historyItem.cards = resultItem.cards
+        historyItem.hand = resultItem.hand
+
+        // Thiết lập giá trị cho thuộc tính created_at của đối tượng History
+        historyItem.created_at = Date()
+
+        try! realm.write {
+            realm.add(historyItem)
+        }
+    }
 }
