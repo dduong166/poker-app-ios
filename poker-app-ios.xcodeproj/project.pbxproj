@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		740B1BBE05D1FC361318FEC4 /* Pods_poker_app_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D9B25EF321CBB4FCDA9DA3 /* Pods_poker_app_iosTests.framework */; };
+		9D0003B129DE88BC009EA6CB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0003B029DE88BC009EA6CB /* LoadingViewController.swift */; };
 		9D0711D929B5E68400BAF050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711D829B5E68400BAF050 /* AppDelegate.swift */; };
 		9D0711DB29B5E68400BAF050 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711DA29B5E68400BAF050 /* SceneDelegate.swift */; };
 		9D0711DD29B5E68400BAF050 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711DC29B5E68400BAF050 /* InputViewController.swift */; };
@@ -25,7 +26,6 @@
 		9DCCF5EC29D02F5C0053D947 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5EB29D02F5C0053D947 /* ResultViewController.swift */; };
 		9DCCF5EE29D05BC80053D947 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5ED29D05BC80053D947 /* Result.swift */; };
 		9DCCF5F229D069080053D947 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5F129D069080053D947 /* HistoryViewController.swift */; };
-		9DCCF5F429D124780053D947 /* ABCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5F329D124780053D947 /* ABCViewController.swift */; };
 		9DCCF5F629D126A30053D947 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5F529D126A30053D947 /* History.swift */; };
 		AFC9010B3DB59129AA108ACD /* Pods_poker_app_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A82526856E41DA725AF2B /* Pods_poker_app_ios.framework */; };
 		F7D4BEBB831F559289952F09 /* Pods_poker_app_ios_poker_app_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2ADED59583D828EC3C2EF80 /* Pods_poker_app_ios_poker_app_iosUITests.framework */; };
@@ -54,6 +54,7 @@
 		55AF98797A3DD1768D7F3A7B /* Pods-poker-app-ios-poker-app-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poker-app-ios-poker-app-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-poker-app-ios-poker-app-iosUITests/Pods-poker-app-ios-poker-app-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		599B1FDAB33D40239FA0D56D /* Pods-poker-app-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poker-app-ios.release.xcconfig"; path = "Target Support Files/Pods-poker-app-ios/Pods-poker-app-ios.release.xcconfig"; sourceTree = "<group>"; };
 		711A82526856E41DA725AF2B /* Pods_poker_app_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_poker_app_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0003B029DE88BC009EA6CB /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		9D0711D529B5E68400BAF050 /* poker-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "poker-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0711D829B5E68400BAF050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D0711DA29B5E68400BAF050 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		9DCCF5EB29D02F5C0053D947 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		9DCCF5ED29D05BC80053D947 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		9DCCF5F129D069080053D947 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		9DCCF5F329D124780053D947 /* ABCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCViewController.swift; sourceTree = "<group>"; };
 		9DCCF5F529D126A30053D947 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		A40136986E4578F71F6D5B4C /* Pods-poker-app-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poker-app-iosTests.release.xcconfig"; path = "Target Support Files/Pods-poker-app-iosTests/Pods-poker-app-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2ADED59583D828EC3C2EF80 /* Pods_poker_app_ios_poker_app_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_poker_app_ios_poker_app_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,7 +173,7 @@
 				9D0711DC29B5E68400BAF050 /* InputViewController.swift */,
 				9DCCF5EB29D02F5C0053D947 /* ResultViewController.swift */,
 				9DCCF5F129D069080053D947 /* HistoryViewController.swift */,
-				9DCCF5F329D124780053D947 /* ABCViewController.swift */,
+				9D0003B029DE88BC009EA6CB /* LoadingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -468,7 +468,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DCCF5F429D124780053D947 /* ABCViewController.swift in Sources */,
 				9DCCF5EE29D05BC80053D947 /* Result.swift in Sources */,
 				9DCCF5E829CFD57E0053D947 /* Common.swift in Sources */,
 				9DCCF5DB29B9E0CD0053D947 /* SingletonClass.swift in Sources */,
@@ -480,6 +479,7 @@
 				9D0711DD29B5E68400BAF050 /* InputViewController.swift in Sources */,
 				9D10432229DADBAE00DA856E /* HistoryRealm.swift in Sources */,
 				9D0711D929B5E68400BAF050 /* AppDelegate.swift in Sources */,
+				9D0003B129DE88BC009EA6CB /* LoadingViewController.swift in Sources */,
 				9D0711DB29B5E68400BAF050 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

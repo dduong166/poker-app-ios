@@ -23,8 +23,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
 
         historyTableView.dataSource = self
-        // Do any additional setup after loading the view.
+        // Loading...
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overCurrentContext
+        loadingVC.modalTransitionStyle = .crossDissolve
+        present(loadingVC, animated: true, completion: nil)
+        
         histories = readFromDatabase(histories: histories)
+        //disable loading
+        dismiss(animated: true, completion: nil)
+
         
     }
     
