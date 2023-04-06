@@ -23,7 +23,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        TableViewData.hands.append(Hand(inputCard1: "", inputCard2: "", inputCard3: "", inputCard4: "", inputCard5: ""))
         inputTableView.dataSource = self
     }
     
@@ -49,18 +48,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
    
     @IBAction func pressCheckBtn(_ sender: Any) {
+        // Loading...
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overCurrentContext
+        loadingVC.modalTransitionStyle = .crossDissolve
+        present(loadingVC, animated: true, completion: nil)
         
         if TableViewData.isErrorPresent == true || isEmptyPresent() {
             Toast.show(Strings.ErrorMessages.errorPresent, self.view)
         } else {
             getResult { (result, error) in
-                if let error = error {
-                    print("Error: \(error)")
-                    Toast.show(error.localizedDescription, self.view)
-                } else if let result = result {
-                    print("Result: \(result)")
-                    writeToDatabase(results: result.results)
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    //disable loading
+                    loadingVC.dismiss(animated: true, completion: nil)
+                    if let error = error {
+                        print("Error: \(error)")
+                        Toast.show(error.localizedDescription, self.view)
+                    } else if let result = result {
+                        print("Result: \(result)")
+                        writeToDatabase(results: result.results)
                         let resultScreen = self.storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
                         resultScreen.results = result.results
                         self.navigationController?.pushViewController(resultScreen, animated: true)
@@ -69,11 +75,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
-        
-        
-//        let resultScreen = storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
-//        resultScreen.param = TableViewData.hands
-//        navigationController?.pushViewController(resultScreen, animated: true)
     }
     
     @IBAction func addInput(_ sender: Any) {

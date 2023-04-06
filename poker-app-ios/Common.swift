@@ -48,12 +48,3 @@ func handsArrayToJson(hands: [Hand]) -> String? {
 
     return ""
 }
-
-//func handsArrayToJson(hands: [Hand]) -> Any? {
-//    let handStrings = hands.map { $0.mergeCard() }
-//
-//    let json: [String: Any] = ["cards": handStrings]
-//    let jsonData = try? JSONSerialization.data(withJSONObject: json)
-//
-//    return jsonData
-//}
