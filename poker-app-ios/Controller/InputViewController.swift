@@ -52,28 +52,43 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let loadingVC = LoadingViewController()
         loadingVC.modalPresentationStyle = .overCurrentContext
         loadingVC.modalTransitionStyle = .crossDissolve
-        present(loadingVC, animated: true, completion: nil)
         
         if TableViewData.isErrorPresent == true || isEmptyPresent() {
             Toast.show(Strings.ErrorMessages.errorPresent, self.view)
         } else {
+            present(loadingVC, animated: true, completion: nil)
             getResult { (result, error) in
+//                DispatchQueue.main.async {
+//                    //disable loading
+//                    loadingVC.dismiss(animated: true, completion: nil)
+//                    if let error = error {
+//                        print("Error: \(error)")
+//                        Toast.show(error.localizedDescription, self.view)
+//                    } else if let result = result {
+//                        print("Result: \(result)")
+//                        writeToDatabase(results: result.results)
+//                        let resultScreen = self.storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
+//                        resultScreen.results = result.results
+//                        self.navigationController?.pushViewController(resultScreen, animated: true)
+//                    }
+//                }
                 DispatchQueue.main.async {
                     //disable loading
-                    loadingVC.dismiss(animated: true, completion: nil)
-                    if let error = error {
-                        print("Error: \(error)")
-                        Toast.show(error.localizedDescription, self.view)
-                    } else if let result = result {
-                        print("Result: \(result)")
-                        writeToDatabase(results: result.results)
-                        let resultScreen = self.storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
-                        resultScreen.results = result.results
-                        self.navigationController?.pushViewController(resultScreen, animated: true)
+                    loadingVC.dismiss(animated: true) {
+                        if let error = error {
+                            print("Error: \(error)")
+                            Toast.show(error.localizedDescription, self.view)
+                        } else if let result = result {
+                            print("Result: \(result)")
+                            writeToDatabase(results: result.results)
+                            let resultScreen = self.storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
+                            resultScreen.results = result.results
+                            self.navigationController?.pushViewController(resultScreen, animated: true)
+                        }
                     }
                 }
+
             }
-            
         }
     }
     
