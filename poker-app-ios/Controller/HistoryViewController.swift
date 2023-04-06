@@ -12,11 +12,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
     var shouldReloadData = false
     
     @IBOutlet weak var historyTableView: UITableView!
-//    var histories = [
-//        History(card: "C7 C6 C5 C4 C3", hand: "フルハウス", created_at: "03/04/2023 18:16"),
-//        History(card: "H1 H13 H2 A1 D10", hand: "フォー・オブ・ア・カインド", created_at: "12/03/2023 08:16"),
-//        History(card: "H1 H13 H12 H11 H10", hand: "ストレートフラッシュ", created_at: "03/02/2023 11:10"),
-//    ]
     var histories = [History]()
    
     override func viewDidLoad() {

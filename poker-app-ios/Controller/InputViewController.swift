@@ -58,20 +58,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else {
             present(loadingVC, animated: true, completion: nil)
             getResult { (result, error) in
-//                DispatchQueue.main.async {
-//                    //disable loading
-//                    loadingVC.dismiss(animated: true, completion: nil)
-//                    if let error = error {
-//                        print("Error: \(error)")
-//                        Toast.show(error.localizedDescription, self.view)
-//                    } else if let result = result {
-//                        print("Result: \(result)")
-//                        writeToDatabase(results: result.results)
-//                        let resultScreen = self.storyboard?.instantiateViewController(withIdentifier: "result_screen") as! ResultViewController
-//                        resultScreen.results = result.results
-//                        self.navigationController?.pushViewController(resultScreen, animated: true)
-//                    }
-//                }
                 DispatchQueue.main.async {
                     //disable loading
                     loadingVC.dismiss(animated: true) {
@@ -172,8 +158,6 @@ class HandTableViewCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func checkInputError() {
@@ -287,9 +271,6 @@ func getResult(completion: @escaping (ResultsContainer?, Error?) -> Void) {
             // Decode the JSON data into a Result object
             let decoder = JSONDecoder()
             let returnResult = try decoder.decode(ResultsContainer.self, from: data)
-
-            // Use the Result object as needed
-//            print("Result: \(returnResult)")
 
             // Return the Result object through the completion handler
             completion(returnResult, nil)

@@ -20,7 +20,6 @@
 		9D0711FC29B5E68500BAF050 /* poker_app_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0711FB29B5E68500BAF050 /* poker_app_iosUITestsLaunchTests.swift */; };
 		9D07120E29B5EB0000BAF050 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07120D29B5EB0000BAF050 /* Hand.swift */; };
 		9D10432229DADBAE00DA856E /* HistoryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D10432129DADBAE00DA856E /* HistoryRealm.swift */; };
-		9DCCF5DB29B9E0CD0053D947 /* SingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */; };
 		9DCCF5E629CA8B840053D947 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5E529CA8B840053D947 /* Strings.swift */; };
 		9DCCF5E829CFD57E0053D947 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5E729CFD57E0053D947 /* Common.swift */; };
 		9DCCF5EC29D02F5C0053D947 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCF5EB29D02F5C0053D947 /* ResultViewController.swift */; };
@@ -70,7 +69,6 @@
 		9D0711FB29B5E68500BAF050 /* poker_app_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poker_app_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9D07120D29B5EB0000BAF050 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		9D10432129DADBAE00DA856E /* HistoryRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRealm.swift; sourceTree = "<group>"; };
-		9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonClass.swift; sourceTree = "<group>"; };
 		9DCCF5E529CA8B840053D947 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		9DCCF5E729CFD57E0053D947 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		9DCCF5EB29D02F5C0053D947 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				9D0711D829B5E68400BAF050 /* AppDelegate.swift */,
 				9D0711DA29B5E68400BAF050 /* SceneDelegate.swift */,
 				9D0711E629B5E68500BAF050 /* Info.plist */,
-				9DCCF5DA29B9E0CD0053D947 /* SingletonClass.swift */,
 				9DCCF5E529CA8B840053D947 /* Strings.swift */,
 				9DCCF5E729CFD57E0053D947 /* Common.swift */,
 			);
@@ -470,7 +467,6 @@
 			files = (
 				9DCCF5EE29D05BC80053D947 /* Result.swift in Sources */,
 				9DCCF5E829CFD57E0053D947 /* Common.swift in Sources */,
-				9DCCF5DB29B9E0CD0053D947 /* SingletonClass.swift in Sources */,
 				9DCCF5F229D069080053D947 /* HistoryViewController.swift in Sources */,
 				9DCCF5E629CA8B840053D947 /* Strings.swift in Sources */,
 				9DCCF5F629D126A30053D947 /* History.swift in Sources */,
