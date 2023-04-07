@@ -7,6 +7,7 @@
 
 import UIKit
 
+//通知を表示させるポップアップ
 class Toast {
     internal static func show(_ text: String, _ parent: UIView) {
         let label = UILabel()
@@ -36,6 +37,7 @@ class Toast {
     }
 }
 
+//カードセット一覧をJSON化にする（APIのparamになるため）
 func handsArrayToJson(hands: [Hand]) -> String? {
     let handStrings = hands.map { $0.mergeCard() }
 

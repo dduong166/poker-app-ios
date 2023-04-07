@@ -18,7 +18,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
 
         historyTableView.dataSource = self
-        histories = readFromDatabase(histories: histories)
+        histories = readFromDatabase()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +26,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         
         //1回目はtableviewをリロードしない、2回目からリロードする
         if shouldReloadData {
-            histories = readFromDatabase(histories: [History]())
+            histories = readFromDatabase()
             historyTableView.reloadData()
         } else {
             shouldReloadData = true
@@ -57,8 +57,11 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var created_at: UILabel!
 }
 
-func readFromDatabase(histories: [History]) -> [History] {
-    var histories_list = histories
+//データベースから履歴のデータを読み出す
+//param なし
+//return histories_list 表示させる履歴一覧
+func readFromDatabase() -> [History] {
+    var histories_list = [History]()
     let realm = try! Realm()
     let historyResults = realm.objects(HistoryRealm.self)
     print(historyResults)

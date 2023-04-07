@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 
+//Poker画面でのグローバル変数
 struct TableViewData {
     static var hands = [Hand]()
     static var cellPosition = 0
@@ -34,6 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         shouldReloadData ? inputTableView.reloadData() : (shouldReloadData = true)
     }
     
+    //入力されているText FieldがどのCellにあるかを確認する
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // get UITableViewCell that contain UITextField
         guard let cell = textField.superview?.superview as? HandTableViewCell else {
@@ -46,7 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         TableViewData.cellPosition = indexPath.row
     }
 
-   
+   //Submitボランが押される場合の対応
     @IBAction func pressCheckBtn(_ sender: Any) {
         // Loading...
         let loadingVC = LoadingViewController()
@@ -78,6 +80,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //カードセットを追加するためのボタンが押される場合の対応
     @IBAction func addInput(_ sender: Any) {
         TableViewData.hands.append(Hand(inputCard1: "", inputCard2: "", inputCard3: "", inputCard4: "", inputCard5: ""))
         inputTableView.reloadData()
@@ -91,7 +94,6 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = inputTableView.dequeueReusableCell(withIdentifier: "inputCell") as! HandTableViewCell
-//        let hand = hands[indexPath.row]
         let hand = TableViewData.hands[indexPath.row]
         
         cell.inputCard1.text = hand.inputCard1
@@ -136,6 +138,7 @@ class HandTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    //Text Fieldが入力される場合の対応
     @IBAction func edittingInputCard1(_ sender: Any) {
         TableViewData.hands[TableViewData.cellPosition].inputCard1 = inputCard1.text ?? ""
         checkInputError()
@@ -156,18 +159,19 @@ class HandTableViewCell: UITableViewCell {
         TableViewData.hands[TableViewData.cellPosition].inputCard5 = inputCard5.text ?? ""
         checkInputError()
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
+
+    //カードセットにエラーがあるかどうか確認する
+    //param なし
+    //return なし
     func checkInputError() {
-        
         TableViewData.isErrorPresent = false
         
+        //カードセットにある各カードの値の配列
         let inputArray = [TableViewData.hands[TableViewData.cellPosition].inputCard1, TableViewData.hands[TableViewData.cellPosition].inputCard2, TableViewData.hands[TableViewData.cellPosition].inputCard3, TableViewData.hands[TableViewData.cellPosition].inputCard4, TableViewData.hands[TableViewData.cellPosition].inputCard5]
+        // inputArray内の各要素の出現回数
         let countDictionary = countInputValue(inputArray: inputArray)
 
-        // array containing number of occurrences of each element in inputArray
+        //各カードを検証する
         for (index, value) in inputArray.enumerated() {
             switch index {
             case 0:
@@ -187,7 +191,9 @@ class HandTableViewCell: UITableViewCell {
     }
 }
 
-// Count the number of occurrences of each element in the array
+//カードセットの各カードの出現回数を数える
+//param inputArray カードセットにある各カードの値の配列
+//return countDictionary そのカードセット内の各カードの出現回数
 func countInputValue(inputArray: [String]) -> [String: Int] {
     var countDictionary = [String: Int]()
 
@@ -201,15 +207,28 @@ func countInputValue(inputArray: [String]) -> [String: Int] {
     
     return countDictionary
 }
-
+ 
+//カードが不正かどうか確認する
+//param inputCard カードのTextField
+//param countValue カードセットにの出現回数
+//param errorMessage そのカードのエラーメッセージTextField
+//param errorIcon そのカードのエラーアイコンTextField
+//return なし
 func showErrorIfPresent(inputCard: UITextField, countValue: Int, errorMessage: UILabel, errorIcon: UIImageView) {
+    //重複されるかどうかを検証する
     if inputCard.text != "" && countValue > 1 {
         showInputError(errorMessage: errorMessage, errorIcon: errorIcon, errorMessageText: Strings.ErrorMessages.duplicatedInput)
     } else {
+        //カードのフォーマットが不正かどうかを検証する
         checkFormatError(inputCard: inputCard, errorMessage: errorMessage, errorIcon: errorIcon)
     }
 }
 
+//カードのフォーマットが不正かどうかを検証する
+//param inputCard カードのTextField
+//param errorMessage そのカードのエラーメッセージTextField
+//param errorIcon そのカードのエラーアイコンTextField
+//return なし
 func checkFormatError(inputCard: UITextField, errorMessage: UILabel, errorIcon: UIImageView) {
     let REGEX = "^([SHDC])([1-9]|1[0-3])$"
 
@@ -220,6 +239,11 @@ func checkFormatError(inputCard: UITextField, errorMessage: UILabel, errorIcon: 
     }
 }
 
+//エラーメッセージを表示させる
+//param errorMessage そのカードのエラーメッセージTextField
+//param errorIcon そのカードのエラーアイコンTextField
+//param errorMessageText エラーメッセージの内容
+//return なし
 func showInputError(errorMessage: UILabel, errorIcon: UIImageView, errorMessageText: String) {
     if errorMessageText == "" {
         errorMessage.isHidden = true
@@ -232,12 +256,18 @@ func showInputError(errorMessage: UILabel, errorIcon: UIImageView, errorMessageT
     }
 }
 
+//全体のカードセットに空いているカードの存在を確認する
+//param なし
+//return Bool true:存在、 false:不在
 func isEmptyPresent() -> Bool{
     return TableViewData.hands.contains { hand in
         hand.inputCard1.isEmpty || hand.inputCard2.isEmpty || hand.inputCard3.isEmpty || hand.inputCard4.isEmpty || hand.inputCard5.isEmpty
     }
 }
 
+//結果を確認するAPIを呼び出す
+//param なし
+//return Bool true:存在、 false:不在
 func getResult(completion: @escaping (ResultsContainer?, Error?) -> Void) {
     // Prepare URL
     let url = URL(string: "https://atoneios.onrender.com/api/v1/poker")
@@ -290,14 +320,9 @@ func writeToDatabase(results: [Result]) {
     
     for resultItem in results {
 
-        // Tạo một đối tượng History mới
         let historyItem = HistoryRealm()
-
-        // Gán giá trị cho thuộc tính cards và hand của đối tượng History từ mảng Result
         historyItem.cards = resultItem.cards
         historyItem.hand = resultItem.hand
-
-        // Thiết lập giá trị cho thuộc tính created_at của đối tượng History
         historyItem.created_at = Date()
 
         try! realm.write {

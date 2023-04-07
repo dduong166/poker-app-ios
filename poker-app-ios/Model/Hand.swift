@@ -7,6 +7,7 @@
 
 import UIKit
 
+//カードセットのObject
 struct Hand {
     var inputCard1: String
     var inputCard2: String

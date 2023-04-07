@@ -7,6 +7,7 @@
 
 import UIKit
 
+//履歴のObject
 struct History {
     var card: String
     var hand: String
