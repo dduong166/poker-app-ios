@@ -28,7 +28,8 @@ class ResultViewController: UIViewController, UITableViewDataSource {
         
         cell.hand.text = result.hand
         cell.cards.text = result.cards
-        
+        cell.selectionStyle = .none
+
         return cell
     }
 }

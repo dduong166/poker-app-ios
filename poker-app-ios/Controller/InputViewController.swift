@@ -107,6 +107,7 @@ extension ViewController: UITableViewDataSource {
         cell.inputCard5.text = hand.inputCard5
         cell.inputCard5.delegate = self
 
+        cell.selectionStyle = .none
         return cell
     }
 }

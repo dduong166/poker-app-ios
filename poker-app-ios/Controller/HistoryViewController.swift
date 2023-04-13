@@ -44,7 +44,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         cell.hand.text = history.hand
         cell.card.text = history.card
         cell.created_at.text = history.created_at
-        
+        cell.selectionStyle = .none
+
         return cell
     }
     
